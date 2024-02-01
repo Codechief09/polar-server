@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polar-batches
+  namespace: polar
+  labels:
+    app: polar-batches
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: polar-batches
+  template:
+    metadata:
+      labels:
+        app: polar-batches
+    spec:
+      containers:
+        - name: polar-batches-runner-1
+          image: polar-batches-image
+          imagePullPolicy: "Always"
+          envFrom:
+            - secretRef:
+                name: credentials
+                optional: false
+      terminationGracePeriodSeconds: 60

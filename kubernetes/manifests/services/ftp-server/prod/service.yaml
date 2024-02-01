@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: polar-ftp-server
+spec:
+  type: LoadBalancer
+  loadBalancerIP: '34.85.6.223'
+  selector:
+    app: polar-ftp-server
+  ports:
+  - port: 21
+    name: ftp
+    targetPort: 21
+  - port: 30000
+    name: ftp-pasv-0
+    targetPort: 30000
+  - port: 30001
+    name: ftp-pasv-1
+    targetPort: 30001
+  - port: 30002
+    name: ftp-pasv-2
+    targetPort: 30002
+  - port: 30003
+    name: ftp-pasv-3
+    targetPort: 30003
+  - port: 30004
+    name: ftp-pasv-4
+    targetPort: 30004
+  - port: 30005
+    name: ftp-pasv-5
+    targetPort: 30005
+  - port: 30006
+    name: ftp-pasv-6
+    targetPort: 30006
+  - port: 30007
+    name: ftp-pasv-7
+    targetPort: 30007
+  - port: 30008
+    name: ftp-pasv-8
+    targetPort: 30008
+  - port: 30009
+    name: ftp-pasv-9
+    targetPort: 30009

@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  MASQUERADE_ADDRESS: "34.85.6.223"
+  FIREBASE_STORAGE_BUCKET_NAME: "battonaiocr.appspot.com"
+kind: ConfigMap
+metadata:
+  name: polar-ftp-server

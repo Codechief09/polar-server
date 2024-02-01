@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polar-batches
+  namespace: polar
+spec:
+  replicas: 1
+  template:
+    spec:
+      serviceAccountName: polar-batch-executor

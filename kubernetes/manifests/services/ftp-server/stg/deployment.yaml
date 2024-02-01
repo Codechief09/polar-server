@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polar-ftp-server
+  labels:
+    app: polar-ftp-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: polar-ftp-server
+  template:
+    metadata:
+      labels:
+        app: polar-ftp-server
+    spec:
+      containers:
+        - name: polar-ftp-server
+          image: asia-northeast1-docker.pkg.dev/battonaiocr-staging/polar-repo/polar-ftp-server/polar-ftp-server:63cb2ef
+          ports:
+            - containerPort: 21
+              name: ftp
+            - containerPort: 30000
+              name: ftp-pasv-0
+            - containerPort: 30001
+              name: ftp-pasv-1
+            - containerPort: 30002
+              name: ftp-pasv-2
+            - containerPort: 30003
+              name: ftp-pasv-3
+            - containerPort: 30004
+              name: ftp-pasv-4
+            - containerPort: 30005
+              name: ftp-pasv-5
+            - containerPort: 30006
+              name: ftp-pasv-6
+            - containerPort: 30007
+              name: ftp-pasv-7
+            - containerPort: 30008
+              name: ftp-pasv-8
+            - containerPort: 30009
+              name: ftp-pasv-9
+          envFrom:
+            - secretRef:
+                name: polar-ftp-server
+                optional: false
+            - configMapRef:
+                name: polar-ftp-server
+                optional: false
+          volumeMounts:
+            - mountPath: /app/file
+              name: cert-config
+      volumes:
+        - name: cert-config
+          secret:
+            secretName: polar-ftp-server-cert

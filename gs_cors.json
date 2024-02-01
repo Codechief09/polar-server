@@ -1,0 +1,7 @@
+[
+	{
+		"origin": ["http://localhost:4200", "https://battonaiocr.web.app", "https://app.fax-busters.com", "https://app-poc.fax-busters.com"],
+		"method": ["OPTIONS", "GET"],
+		"maxAgeSeconds": 3600
+	}
+]
